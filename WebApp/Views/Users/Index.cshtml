@@ -1,0 +1,32 @@
+﻿@model List<WebApp.Models.UserViewModel>
+
+<h2>Users</h2>
+<a class="btn btn-primary mb-3" href="@Url.Action("Create")">Create New User</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="@Url.Action("Details", new { id = user.Id })">View</a>
+                    <a class="btn btn-sm btn-warning" href="@Url.Action("Edit", new { id = user.Id })">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", new { id = user.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

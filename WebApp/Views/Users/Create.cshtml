@@ -1,0 +1,30 @@
+﻿@model WebApp.Models.UserViewModel
+
+<h2>Create New User</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Role"></label>
+        <input asp-for="Role" class="form-control" />
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bio"></label>
+        <textarea asp-for="Bio" class="form-control"></textarea>
+        <span asp-validation-for="Bio" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success mt-2">Create</button>
+    <a class="btn btn-secondary mt-2" href="@Url.Action("Index")">Back</a>
+</form>

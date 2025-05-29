@@ -1,0 +1,44 @@
+﻿@model List<WebApp.Models.TaskItemViewModel>
+
+@{
+    ViewData["Title"] = "Tasks List";
+}
+
+<h2>Available Tasks</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Post New Task</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Client</th>
+            <th>Freelancer</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Status</td>
+                <td>@task.ClientId</td>
+                <td>@(string.IsNullOrEmpty(task.FreelancerId) ? "-" : task.FreelancerId)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@task.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@task.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@task.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
