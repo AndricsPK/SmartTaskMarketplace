@@ -8,6 +8,7 @@
         public string Status { get; set; } // e.g., "Open", "In Progress", "Completed"
         public string ClientId { get; set; }
         public string? FreelancerId { get; set; }
+      //  public string time { get; set; }
     }
 
 }

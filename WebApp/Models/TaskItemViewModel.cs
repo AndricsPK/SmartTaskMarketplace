@@ -8,5 +8,6 @@
         public string Status { get; set; }
         public string ClientId { get; set; }
         public string? FreelancerId { get; set; }
+  //      public string time { get; set; }
     }
 }
